@@ -1,22 +1,270 @@
-
+	@import 'fonts.css';
 
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
 
 
+html {
+    -webkit-font-smoothing: antialiased;
+    -webkit-backface-visibility: hidden;
+}
+
+body {
+	font-family: 'Arvo', sans-serif;
+	font-size:12px;
+}
+
+header {
+	position:relative;
+}
+
+header .mobile-navigation {
+	background-color:#1b1b1b;
+	text-align:center;
+	padding:35px 0;
+	display:none;
+}
+
+header .logo {
+	font-family: 'Arvo', sans-serif;
+	font-weight:700;
+	color:#fff;
+	font-size:15px;
+	text-transform: uppercase;
+	text-decoration: none;
+}
+
+header .logo:hover {
+	text-decoration: none;
+}
+
+header .navigation-header {
+	position:absolute;
+	width:100%;
+	z-index:9;
+}
+
+header .mobile-navigation .logo {
+	font-size:20px;
+}
+
+
+header .navigation-header .logo {
+	float:left;
+	margin:17px 15px;
+}
+
+header .navigation-header .burger {
+	float:right;
+	margin:15px;
+}
+
+header .navigation-header .burger span:first-child {
+	margin-top:0;
+}
+
+header .navigation-header .burger span {
+	display:block;
+	height:6px;
+	width:31px;
+	background-color:#e7ff93;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	margin-top:4px;
+}
 
 
 
+header nav ul {
+	list-style-type: none;
+	margin:0;
+	padding:0;
+}
+
+header nav ul li {
+
+}
+
+header nav ul li a {
+	color:#e7ff93;
+	font-family:'Gotham-Bold', sans-serif;
+	font-size:16px;
+	text-transform: uppercase;
+	text-decoration: none;
+	display:inline-block;
+	margin-top:35px;
+}
+
+header nav ul li a:hover {
+	color:#e7ff93;
+	text-decoration: none;
+}
+
+h1 {
+	font-size:34px;
+}
+
+h2 {
+	font-size:23px;
+}
+
+p {
+	font-size:20px;
+}
+
+.section.video-section {
+	position:relative;
+}
+.video-container { 
+	position:relative;
+}
+
+.video-container img {
+	width:100%;
+}
+
+.section.video-section .content {
+	width: 100%;
+    height: 100%;
+    display: table;
+    overflow: auto;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+}
+
+.section.video-section .content h1 {
+	color:#fff;
+	line-height:40px;
+}
+
+.section.video-section .content h1 em {
+	color:#e7ff93;
+	padding-bottom:10px;
+	border-bottom:6px solid #fff;
+}
+
+.section.video-section .content p {
+	color:#fff;
+}
+
+.section.content-section {
+	padding:20px 0;
+}
+
+.section.content-section h2 {
+	color:#fff;
+	line-height:30px;
+	margin-bottom:20px;
+}
 
 
+.section.content-section h2 span { 
+	color:#e7ff93;
+}
+
+.section.content-section p {
+	color:#fff;
+	font-family: 'Gotham-Book', sans-serif;
+	font-size:18px;
+	font-weight:normal;
+}
 
 
+.section.content-section .schedule-btn {
+	margin:30px 0;
+	text-decoration: none;
+	font-family: 'Gotham-Bold', sans-serif;
+	font-size:15px;
+	width:100%;
+	display:block;
+	color:#e7ff93;
+	border:1px solid #e7ff93;
+	text-align:center;
+	padding:21px 0;
+	text-transform: uppercase;
+	position:relative;
+}
 
 
+.section.content-section .schedule-btn span {
+	display:inline-block;
+	margin-left:30px;
+}
+
+.second-video {
+	text-align:center;
+}
 
 
+.second-video .content h1 {
+	font-size:25px;
+	font-family: 'Gotham-Bold', sans-serif;
+}
+
+.second-video .content span {
+	display:block;
+	font-size:40px;
+	font-family: 'Arvo', sans-serif;
+	font-style: italic;
+}
+
+.second-video .content img {
+	width:50%;
+	margin:20px 0;
+}
 
 
+.icon-calendar {
+    background:url('../img/icon-calendar.png') no-repeat;
+    width:32px;
+    height:27px;
+    background-size: 100% auto;
+    display: inline-block;
+    position:absolute;
+    left:15px;
+    top:17px;
+}
 
+.video-play {
+	    position: absolute;
+    height: 100%;
+    display: inline-block;
+    width: 60%;
+    text-align: center;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
 
+.purple-bg {
+	background-color:#1c0a2e;
+}
+
+.dark-bg {
+	background-color:#1b1b1b;
+}
+
+hr.green {
+	border-top:6px solid #e7ff93;
+}
+
+.bx-wrapper .bx-viewport {
+	-moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border: 0;
+    left: 0;
+    background: transparent;
+}
+
+div.bxslider {
+    margin-left: 25%;
+    margin-right: 25%;
+}
