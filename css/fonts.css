@@ -60,3 +60,14 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Gotham-Black';
+    src: url('../fonts/gotham-black-webfont.eot');
+    src: url('../fonts/gotham-black-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/gotham-black-webfont.woff') format('woff'),
+         url('../fonts/gotham-black-webfont.ttf') format('truetype'),
+         url('../fonts/gotham-black-webfont.svg#GothamBlackRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
