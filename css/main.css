@@ -3,6 +3,13 @@
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+/*
+fix for flickering
+	-webkit-backface-visibility: hidden;
+	-webkit-perspective: 1000;
+    -webkit-transform-style: preserve-3d;
+*/
+
 .scroll-lock {
 	position:fixed;
 	height:100%;
@@ -10,7 +17,17 @@
     overflow:hidden;
     -webkit-overflow-scrolling: touch;
     -webkit-backface-visibility: hidden;
+    -webkit-transform-style: preserve-3d;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    z-index:5;
 
+}
+
+div {
+	-webkit-backface-visibility: hidden;
 }
 
 html {
@@ -95,6 +112,7 @@ header .navigation-header {
 	top:0;
 	background-color:rgba(27,27,27,0.9);
 }
+
 
 
 header .navigation-header.sticky {
@@ -240,10 +258,17 @@ p {
 }
 .video-container { 
 	position:relative;
+	margin:0 0 -6px;
 }
 
 .video-container img {
 	width:100%;
+}
+
+.video-player {
+	width:100% !important;
+	height:auto !important;
+	cursor:pointer;
 }
 
 .section.video-section .content {
@@ -340,6 +365,7 @@ p {
     -webkit-transition:all 0.7s cubic-bezier(0.95, 0.05, 0.795, 0.035);
     -moz-transition:all 0.7s cubic-bezier(0.95, 0.05, 0.795, 0.035);
     transition:all 0.7s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+    overflow-x:hidden;
 }
 
 .schedule.active {
@@ -582,13 +608,25 @@ a.btn .fa-linkedin {
 	position: absolute;
     height: 100%;
     display: inline-block;
-    width: 57%;
+    width: 50%;
     text-align: center;
-    left: 0;
+    left: -2px;
     right: 0;
     margin: 0 auto;
     z-index:999;
+    opacity: 1;
+    -webkit-transition:opacity 0.1s linear;
+    -moz-transition:opacity 0.1s linear;
+    transition:opacity 0.1s linear;
 }
+
+.video-play.active {
+	opacity: 0;
+    -webkit-transition:opacity 0.5s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+    -moz-transition:opacity 0.5s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+    transition:opacity 0.5s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+}
+
 
 .video-js {
 	height:180px !important;
@@ -610,7 +648,7 @@ a.btn .fa-linkedin {
 	margin:40px 0;
 }
 
-.btn-play:hover {
+.btn-play:hover, .btn-play:focus {
 	text-decoration: none;
 	color:#fff;
 }
@@ -687,9 +725,6 @@ p.quote:after {
 	margin:10px 0;
 }
 
-.map-content {
-	padding-bottom:40px;
-}
 
 .map-content .map-nav {
 	list-style: none;
@@ -848,6 +883,16 @@ p.quote:after {
 	background-size:auto 100%;
 }
 
+.icon-user {
+	background:url('../img/icon-user.png') no-repeat 0 0;	
+	background-size:100%;
+}
+
+.icon-file {
+	background:url('../img/icon-file.png') no-repeat 0 0;	
+	background-size:100%;
+}
+
 
 .review-text {
 	text-align: center;
@@ -901,6 +946,12 @@ p.quote:after {
 	color:#fff;
 	text-decoration: none;
 }
+
+#contact.section {
+	padding:20px 0 40px !important;
+}
+
+
 
 footer {
 	background:#1c0a2e;
@@ -1125,7 +1176,11 @@ div.bxslider {
 }
 
 
-
+@media only screen and (max-device-width: 1024px) {
+	.video-play {
+		display:none !important;
+	}
+}
 
 @keyframes fadeInAnim {
   0% {
@@ -1152,5 +1207,10 @@ div.bxslider {
   100% {
     display: none;
   }
+}
+
+video::-webkit-media-controls-start-playback-button {
+  display: none !important;
+  -webkit-appearance: none;
 }
 
