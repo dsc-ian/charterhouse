@@ -11,19 +11,11 @@ fix for flickering
 */
 
 .scroll-lock {
-	position:fixed;
-	height:100%;
-	width:100%;
     overflow:hidden;
     -webkit-overflow-scrolling: touch;
     -webkit-backface-visibility: hidden;
     -webkit-transform-style: preserve-3d;
-    top:0;
-    bottom:0;
-    left:0;
-    right:0;
     z-index:5;
-
 }
 
 div {
@@ -78,7 +70,7 @@ header .logo {
 	font-family: 'Arvo', sans-serif;
 	font-weight:700;
 	color:#fff;
-	font-size:15px;
+	font-size:16px;
 	text-transform: uppercase;
 	text-decoration: none;
 	position:absolute;
@@ -113,6 +105,9 @@ header .navigation-header {
 	background-color:rgba(27,27,27,0.9);
 }
 
+header.active .navigation-header {
+	background-color: transparent !important;
+}
 
 
 header .navigation-header.sticky {
@@ -135,6 +130,15 @@ header .navigation-header.header-hide {
     transition: all 0.7s cubic-bezier(0.95, 0.05, 0.795, 0.035);
 }
 
+header.active .navigation-header.header-hide {
+	top:0;
+}
+
+header.enable-bg .navigation-header {
+	background-color:rgba(27,27,27,0.9);
+    -webkit-transition-delay: 0.5s !important;
+    transition-delay: 0.5s !important;
+}
 
 header .mobile-navigation .logo {
 	font-size:20px;
@@ -229,9 +233,12 @@ header nav ul li a {
 	text-decoration: none;
 	display:inline-block;
 	margin-top:35px;
+	letter-spacing: 1px;
 }
 
-header nav ul li a:hover {
+
+
+header nav ul li a:hover, header nav ul li a:focus {
 	color:#e7ff93;
 	text-decoration: none;
 }
@@ -259,6 +266,7 @@ p {
 .video-container { 
 	position:relative;
 	margin:0 0 -6px;
+	overflow:hidden;
 }
 
 .video-container img {
@@ -266,8 +274,6 @@ p {
 }
 
 .video-player {
-	width:100% !important;
-	height:auto !important;
 	cursor:pointer;
 }
 
@@ -334,7 +340,8 @@ p {
 	margin:30px 0;
 	text-decoration: none;
 	font-family: 'Gotham-Bold', sans-serif;
-	font-size:15px;
+	font-size:16px;
+	letter-spacing: 1px;
 	width:100%;
 	display:block;
 	color:#e7ff93;
@@ -521,6 +528,10 @@ p {
 	margin:50px 0 30px;
 }
 
+.carousel-container .owl-prev, .carousel-container .owl-next, .schedule-content .owl-prev,  .schedule-content .owl-next {
+	width:25px;
+}
+
 .carousel-text {
 	margin-top:25px;
 }
@@ -540,7 +551,7 @@ p {
 .carousel-container .owl-controls {
 	position:absolute;
 	width:100%;
-	top:13px;
+	top:5px;
 }
 
 
@@ -576,7 +587,7 @@ img {
 }
 
 .icon-email {
-	background:url('../img/icon-email.png') no-repeat;
+	background:url('../img/icon-email-hover.png') no-repeat;
     width: 32px;
     height: 27px;
     position: relative;
@@ -608,23 +619,17 @@ a.btn .fa-linkedin {
 	position: absolute;
     height: 100%;
     display: inline-block;
-    width: 50%;
+    width: 56%;
     text-align: center;
-    left: -2px;
+    left: 0;
     right: 0;
     margin: 0 auto;
-    z-index:999;
+    z-index:99;
     opacity: 1;
-    -webkit-transition:opacity 0.1s linear;
-    -moz-transition:opacity 0.1s linear;
-    transition:opacity 0.1s linear;
 }
 
 .video-play.active {
 	opacity: 0;
-    -webkit-transition:opacity 0.5s cubic-bezier(0.95, 0.05, 0.795, 0.035);
-    -moz-transition:opacity 0.5s cubic-bezier(0.95, 0.05, 0.795, 0.035);
-    transition:opacity 0.5s cubic-bezier(0.95, 0.05, 0.795, 0.035);
 }
 
 
@@ -754,7 +759,7 @@ p.quote:after {
 }
 
 .map-content .map {
-	margin:40px 0;
+	margin:40px 0 25px;
 }
 
 .map-container {
@@ -763,6 +768,10 @@ p.quote:after {
 
 .location-container {
 	position:relative;
+}
+
+.location-container .carousel-container {
+	margin:0 0 30px;
 }
 
 .location-item.hide {
@@ -810,7 +819,7 @@ p.quote:after {
 	height: 40px;
 	display: inline-block;
 	vertical-align: middle;
-	margin-right: 10px;
+	margin-right: 20px;
 }
 
 .icon-breakfast {
@@ -905,9 +914,9 @@ p.quote:after {
 }
 
 .review-text .txt-label {
-	font-family: 'Arvo', sans-serif;
+	font-family: 'Arvo', sans-serif !important;
 	font-size:20px !important;
-	color:#fff;
+	color:#e7ff93 !important;
 	text-transform: uppercase;
 }
 
@@ -920,7 +929,7 @@ p.quote:after {
 	margin:15px 0;
 	font-family: 'Arvo', sans-serif;
 	font-size:20px;
-	color:#e7ff93;
+	color:#fff;
 	text-transform: uppercase;
 }
 
@@ -1115,6 +1124,10 @@ p a:hover {
 	color:#e7ff93;
 }
 
+.capitalized-text {
+	text-transform: capitalize !important;
+}
+
 .purple-bg {
 	background-color:#210634;
 	padding:20px 0 0 !important;
@@ -1176,11 +1189,6 @@ div.bxslider {
 }
 
 
-@media only screen and (max-device-width: 1024px) {
-	.video-play {
-		display:none !important;
-	}
-}
 
 @keyframes fadeInAnim {
   0% {
@@ -1209,8 +1217,7 @@ div.bxslider {
   }
 }
 
-video::-webkit-media-controls-start-playback-button {
-  display: none !important;
-  -webkit-appearance: none;
+.mejs-overlay-button {
+	display:none;
 }
 
