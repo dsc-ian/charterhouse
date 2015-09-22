@@ -97,28 +97,8 @@ $(document).ready(function(){
 	} else {
 
 
-		/*var _itemHeight = 0;
-		$('.schedule-item').each(function(){
-			var lastHeight = $(this).find('.article').last().outerHeight();
 
-			
-
-            $(this).find('.article').last().each(function(){
-            	console.log($(this));
-            	if ($(this).outerHeight() > _itemHeight) { 
-	                _itemHeight = $(this).outerHeight();     
-	            }
-            });
-
-
-
-			
-			console.log(lastHeight);
-
-		});	*/
-
-
-		$('.banner-player').mediaelementplayer({
+		/*$('.banner-player').mediaelementplayer({
 			startVolume: 0,
 			videoHeight : '100%',
 			videoWidth : '100%',
@@ -127,13 +107,13 @@ $(document).ready(function(){
 			loop: true,
 	        success: function(player, node) {
 	        	$('.banner-video img').hide();
-	        	//$('video').eq(0).get(0).play();
+	        	$('video').get(0).play();
 	        }
-		});
+		});*/
 
-		visibleVideo();
+		//visibleVideo();
 
-		$('.video-section').click(function(e){
+		/*$('.video-section').click(function(e){
 			e.preventDefault();
 			var videoPlayer = $(this).find('video');
 			var videoPlay = $(this);
@@ -147,7 +127,7 @@ $(document).ready(function(){
 				videoPlayer.get(0).pause();
 				videoPlay.removeClass('active')
 			}
-		});
+		});*/
 
 		$('.video-player').mediaelementplayer({
 			hideVideoControlsOnLoad: true,
@@ -476,7 +456,7 @@ $(window).resize(function(){
 	changeImage('.map');
 	if(_viewport.width < 992) {
 
-		$('.banner-video').find('.mobile').removeAttr('style');
+
 		$('body').addClass('device');
 
 		if(!$('.carousel-slide').hasClass('owl-carousel')) {
@@ -590,7 +570,7 @@ $(window).resize(function(){
 		if($('.review-slider').hasClass('owl-carousel')) {
 			//$('.review-slider').trigger('destroy.owl.carousel').removeClass('owl-carousel owl-loaded');
 			//$('.review-slider').find('.owl-stage-outer').children().unwrap();
-			//console.log('test');
+			console.log('test');
 		}
 
 		destroyCarousel($('.carousel-slide'));
@@ -651,7 +631,7 @@ var _cur_top = $(window).scrollTop();
 		} else {
 			$('.navigation-header').removeClass('sticky nav-hide');
 		}
-		visibleVideo();
+		//visibleVideo();
 	} else {
 
 		if ( $(window).scrollTop() >= 30) {
@@ -684,10 +664,10 @@ function visibleVideo() {
 
 		if($(this).visible(true)) {
 			$(this).find('video').get(0).play(); 
-			//console.log('visible');
+			console.log('visible');
 		} else {
 			$(this).find('video').get(0).pause(); 
-			//console.log('hidden');
+			console.log('hidden');
 		}
 
 	});

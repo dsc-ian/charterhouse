@@ -30,7 +30,8 @@ html {
 body {
 	font-family: 'Arvo', sans-serif;
 	font-size:12px;
-	position:relative
+	position:relative;
+	background-color:#1b1b1b;
 }
 
 header {
@@ -47,7 +48,7 @@ header .navigation {
 	left:0;
 	right:0;
 	top:-100%;
-	height:100%;
+	height:auto;
 	width:100%;
 	z-index:999;
 	-webkit-transition: all 0.7s cubic-bezier(0.95, 0.05, 0.795, 0.035);
@@ -259,7 +260,9 @@ h3 {
 p {
 	font-size:20px;
 }
-
+.section {
+	min-height:320px;
+}
 .section.video-section {
 	position:relative;
 }
@@ -751,7 +754,8 @@ p.quote:after {
 
 .map-content .map-nav div {
 	display:inline-block;
-	width:32%;
+	width:31%;
+	margin:0 2px;
 	border:1px solid #e7ff93;
 	text-decoration: none;
 	text-transform: uppercase;
@@ -830,6 +834,7 @@ p.quote:after {
 	margin:0 8px;
 	cursor: pointer;
 }
+
 
 .location-item .item {
 	min-width:320px;
@@ -1268,7 +1273,7 @@ div.bxslider {
 .carousel-slide .owl-dots {
 	display:none !important;
 }
-.carousel-slider .owl-dots {
+.carousel-slider .owl-dots, .about-slider .owl-dots {
 	display:none !important;
 	position:absolute;
 	left:0;
@@ -1304,6 +1309,14 @@ div.bxslider {
     width: 100%;
     padding:0;
 }
+
+.review-dots {
+	display:block;
+}
+
+.icon-item {
+	display:none;
+}
 @media (min-width: 640px) {
 /*
 	.carousel-slider .owl-item img {
@@ -1317,8 +1330,14 @@ div.bxslider {
 }
 
 @media (min-width: 992px) {
+	.section {
+		min-width:400px;
+	}
 	.schedule {
 		background-color:#1b1b1b;
+	}
+	.schedule .week p {
+		font-size:18px;
 	}
 	.schedule .container {
 	    width: 970px;
@@ -1326,7 +1345,7 @@ div.bxslider {
 
 	.schedule-item {
 		display:inline-block;
-		width: 32.3%;
+		width: 31.3%;
 		margin: 0 5px;
 	}
 
@@ -1345,19 +1364,21 @@ div.bxslider {
 	.schedule .close-btn span.bar-2 {
 		right:8px;
 	}
-	.review-dots .dots {
-		cursor:initial;
-		width:19.77% !important;
-		margin:0 !important;
+	.review-dots {
+		display:none;
 	}
-	.review-dots .dots .icon {
+	.review-text .icon-item {
+		display:block;
+	}
+	.review-text .icon-item .icon {
 		width:120px;
 		height:100px;
 		background-size:auto 100%;
 		background-position: center center;
+		margin:30px auto 20px;
 	}
-	.carousel-slider .owl-dots {
-		display:block;
+	.carousel-slider .owl-dots  {
+		display:block !important;
 	}
 	.banner-player {
 		display:block;
@@ -1399,6 +1420,29 @@ div.bxslider {
 		top:0;
 		padding:0;
 	}
+
+	header .navigation.sticky {
+		position:fixed;
+		top:0;
+		-webkit-transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+	    -moz-transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+	    -o-transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+	    -ms-transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+	    transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+	}
+
+
+
+	header .navigation.nav-hide {
+		top:-70px;
+		position:fixed;
+		-webkit-transition: all 0.7s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+		-moz-transition: all 0.7s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+		-o-transition: all 0.7s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+		-ms-transition: all 0.7s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+		transition: all 0.7s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+	}
+
 	header .navigation .container {
 		position:relative;
 	}
@@ -1489,14 +1533,17 @@ div.bxslider {
 	.carousel-slide .item {
 		margin:0;
 		display:inline-block;
-		margin:0 -1px;
-		width:33.4%;
+		margin:-2px;
+		width:33.45%;
 		position:relative;
 		cursor: pointer;
+		overflow:hidden;
 	}
 
 	.carousel-slide .item:hover .roll-over {
 		opacity: 1;
+		height:100% !important;
+
 	}
 
 	.purple-bg h2 {
@@ -1504,21 +1551,21 @@ div.bxslider {
 	}
 
 	.roll-over {
-		display:block;
+		display:block !important;
 		opacity: 0;
 		display:table;
-		height:100%;
+		height:0 !important;
 		width:100%;
 		position:absolute;
-		top:0;
+		bottom:0;
 		left:0;
 		z-index:9;
 		background-color:rgba(33,6,52,0.9);
 		vertical-align: middle;
 		margin:0 auto;
-		-webkit-transition: all 0.3s ease-in-out;
-		-moz-transition: all 0.3s ease-in-out;
-		transition: all 0.3s ease-in-out;
+		-webkit-transition: all 0.5s ease-in-out;
+		-moz-transition: all 0.5s ease-in-out;
+		transition: all 0.5s ease-in-out;
 	}
 
 	.text-content {
@@ -1526,7 +1573,7 @@ div.bxslider {
 		vertical-align: middle;
 		height:100%;
 		width:100%;
-		padding:0 30px;
+		padding:30px 30px 0;
 
 	}
 
@@ -1608,7 +1655,7 @@ div.bxslider {
 	}
 	.values-slider .item {
 		display:inline-block;
-		width:16.1%;
+		width:15.1%;
 		margin:0 0 0 45px;
 	}
 	.carousel-text p {
@@ -1696,8 +1743,6 @@ div.bxslider {
 	.map-nav .dots.active:after {
 		background-color:#e7ff93;
 	}
-
-
 
 
 	.review-text {
@@ -1854,6 +1899,9 @@ div.bxslider {
 
 
 @media (min-width: 1200px) {
+	.schedule-item {
+		width:32.3%;
+	}
 	.schedule .container {
 	    width: 1170px;
 	}
@@ -1868,6 +1916,9 @@ div.bxslider {
 		margin:0 30px;
 	}
 
+	.text-content { 
+		padding:0 30px;
+	}
 
 	.section.video-section .content h1 {
 		font-size:80px;
@@ -1891,7 +1942,7 @@ div.bxslider {
 	}
 
 	.values-slider .item {
-		width:16.8%;
+		width:15.8%;
 	}
 	.carousel-text p {
 		font-size:22px !important;
@@ -1968,3 +2019,5 @@ div.bxslider {
 .roll-over {
 	display:none;
 }
+
+
